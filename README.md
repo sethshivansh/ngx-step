@@ -105,13 +105,13 @@ Object has following keys:
       a) BASIC - Default Selected value for simple stages with status.
       b) CUSTOM - Use this option if want to manage your own custom stages and status logic from diffrent progress update info data.
 
-  2) <code>**finalStageName**</code> : Pass the value if you want to give your own name to Last stage of Progress Steps.
+  2) <code>**finalStageName**</code> : By default it will be <code>'FINISH'</code>, and will be the name of last Stage. Pass the string value if you want to override the Last stage name. 
   Default value is set to `FINISH`.
 
   3) <code>**isMultiWordStageName**</code>: Aceept Boolean value, Set as <code>True</code> if your stage name is multiple words name like
   ORDER_SHIPPED , DEVICE_INSTALLATION etc. 
 
-  ```Note: If value is true then <code>**textSeparator**</code> value must be provide.```
+  ```Note: If value is true then textSeparator value must be provide.```
 
   4) <code> **textSeparator** </code>: Is the symbol used identified the text separator symbol used for multiple Word stage names.
   Default value is <code>'_'</code>.
@@ -126,10 +126,10 @@ Object has following keys:
     }
   ```
 
-  5) <code>**updateProgressLogs**</code>: 
+**5) <code>updateProgressLogs</code>**
 
-  Its and array of object will be used when user has selected the CUSTOM type stepper  i.e  <code>**options.type = 'CUSTOM'**</code> 
-  This option will be usefull when you have some real time stage data updates with some additional information about each stage in addition to name and status. like Message to end user , Detailed Logs information,  Error information etc.
+Its and array of object will be used when user has selected the CUSTOM type stepper  i.e  <code>**options.type = 'CUSTOM'**</code> .
+This option will be usefull when you have some real time stage data updates with some additional information about each stage in addition to name and status. like Message to end user , Detailed Logs information,  Error information etc.
 
   **Structure:**
 
@@ -138,6 +138,18 @@ Object has following keys:
   [{'name':'STEP-1','status':'COMPLETED' , 'message': "We have completed the stage1"},{'name':'STEP-2','status':'IN_PROGRESS' , 'message': "This stage is in progress"}]
 
   ```
+**6) <code>jobOverallStatus</code>**
+
+Overall status of Job or Task which will have following values
+
+a) ACTIVE : Pass this value to represent that main process is Active and in progress.
+
+b) NOT_STARTED: Pass this value to represent that main process is not yet started . In this case status of your sub stages and child stages will be <code>NOT_STARTED</code>.
+
+c) COMPLETED : Pass this value to represent that main process is completed and all its sub or child stages has been completed successfully.
+
+d) FAILED: Pass this value to represent that main process is Failed due to any of the reason or any of the state failed.
+
 
 
 ## Refrence
