@@ -152,7 +152,7 @@ d) FAILED: Pass this value to represent that main process is Failed due to any o
 
 
 
-## Refrence
+## Reference
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
 
 ## License
