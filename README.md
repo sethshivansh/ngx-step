@@ -1,6 +1,9 @@
 # ngx-step
 A simple library module to generate the different stages for activity to track multiple stages.
 
+![image](https://user-images.githubusercontent.com/55994712/215117760-5b4946f9-2c5c-41e5-b081-952daf0b57ac.png)
+
+
 # NgxStep
 
 NgxStep library is easy to use into your angular project which can be use for the purpose of generating and showing  different stages for any lifecycle stages and their status. i.e Product lifycycle stages , Supply chain lifecycle stages, Product shipment and delivery tracking and many more.
@@ -20,7 +23,7 @@ Use of this library is very simple .
 **app.module.ts**
 
 ```ruby
-import {NgStepModule} from 'ng-step'
+import {NgxStepModule} from 'ng-step'
 ```
 Then add into imports array of app module file
 
@@ -29,7 +32,7 @@ Then add into imports array of app module file
   declarations: [
   ],
   imports: [
-    NgStepModule
+    NgxStepModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -72,8 +75,8 @@ export class AppComponent {
 **component.html** code
 
 ```ruby
-<custom-ng-step [stages]="stages">
-</custom-ng-step>
+<ngx-step [stages]="stages">
+</ngx-step>
 ```
 
 # Advanced Configuration inputs parameters
