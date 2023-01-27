@@ -78,11 +78,12 @@ export class AppComponent {
 
 # Advanced Configuration inputs parameters
 
-**2) <code>stages</code>**
+**1) <code>stages</code>**
 
 Array of Object which will hold your stage data. Each object in an array represent one stage. Stage object will have Two Keys:
 
 1) **<code>name</code>** = This is the Name of your Stage and will be visible to UI . Stage name can be any text.
+
 2) **<code>status</code>** = this will hold the current status value of your stage.
 
 Possible Values of Stage <code>status</code> are **<code>NOT_STARTED </code>,<code> IN_PROGRESS </code> ,<code> COMPLETED </code>, <code> FAILED </code>** 
@@ -100,38 +101,43 @@ This input parameter is an object and  used for overriding the default configura
 
 Object has following keys:
 
-1)<code> **type** </code> : Default **BASIC**  Possible Values are 
-    a) BASIC - Default Selected value for simple stages with status.
-    b) CUSTOM - Use this option if want to manage your own custom stages and status logic from diffrent progress update info data.
-2) <code>**finalStageName**</code> : Pass the value if you want to give your own name to Last stage of Progress Steps.
-Default value is set to `FINISH`.
-3) <code>**isMultiWordStageName**</code>: Aceept Boolean value, Set as <code>True</code> if your stage name is multiple words name like
-ORDER_SHIPPED , DEVICE_INSTALLATION etc. 
-```Note: If value is true then <code>**textSeparator**</code> value must be provide.```
-4)<code> **textSeparator** </code>: Is the symbol used identified the text separator symbol used for multiple Word stage names.
-Default value is <code>'_'</code>.
+  1) <code> **type** </code> : Default **BASIC**  Possible Values are 
+      a) BASIC - Default Selected value for simple stages with status.
+      b) CUSTOM - Use this option if want to manage your own custom stages and status logic from diffrent progress update info data.
 
-**Structure:**
-```ruby 
-options = {
-    type: 'BASIC', 
-    finalStageName: 'FINISH',
-    isMultiWordStageName : false,
-    textSeparator: '_'
-  }
-```
-5) <code>**updateProgressLogs**</code>: 
+  2) <code>**finalStageName**</code> : Pass the value if you want to give your own name to Last stage of Progress Steps.
+  Default value is set to `FINISH`.
 
-Its and array of object will be used when user has selected the CUSTOM type stepper  i.e  <code>**options.type = 'CUSTOM'**</code> 
-This option will be usefull when you have some real time stage data updates with some additional information about each stage in addition to name and status. like Message to end user , Detailed Logs information,  Error information etc.
+  3) <code>**isMultiWordStageName**</code>: Aceept Boolean value, Set as <code>True</code> if your stage name is multiple words name like
+  ORDER_SHIPPED , DEVICE_INSTALLATION etc. 
 
-**Structure:**
+  ```Note: If value is true then <code>**textSeparator**</code> value must be provide.```
 
-```ruby 
+  4) <code> **textSeparator** </code>: Is the symbol used identified the text separator symbol used for multiple Word stage names.
+  Default value is <code>'_'</code>.
 
-[{'name':'STEP-1','status':'COMPLETED' , 'message': "We have completed the stage1"},{'name':'STEP-2','status':'IN_PROGRESS' , 'message': "This stage is in progress"}]
+  **Structure:**
+  ```ruby 
+  options = {
+      type: 'BASIC', 
+      finalStageName: 'FINISH',
+      isMultiWordStageName : false,
+      textSeparator: '_'
+    }
+  ```
 
-```
+  5) <code>**updateProgressLogs**</code>: 
+
+  Its and array of object will be used when user has selected the CUSTOM type stepper  i.e  <code>**options.type = 'CUSTOM'**</code> 
+  This option will be usefull when you have some real time stage data updates with some additional information about each stage in addition to name and status. like Message to end user , Detailed Logs information,  Error information etc.
+
+  **Structure:**
+
+  ```ruby 
+
+  [{'name':'STEP-1','status':'COMPLETED' , 'message': "We have completed the stage1"},{'name':'STEP-2','status':'IN_PROGRESS' , 'message': "This stage is in progress"}]
+
+  ```
 
 
 ## Refrence
