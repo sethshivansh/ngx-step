@@ -1,0 +1,30 @@
+{
+  "name": "ngx-step",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethshivansh/ngx-step.git"
+  },
+  "keywords": [
+    "stepper",
+    "ngx-step",
+    "angular-stepper",
+    "Traking-order",
+    "order-progress-stage",
+    "custom-stages"
+  ],
+  "main": "bundles/ngx-step.umd.js",
+  "module": "fesm2015/ngx-step.js",
+  "es2015": "fesm2015/ngx-step.js",
+  "esm2015": "esm2015/ngx-step.js",
+  "fesm2015": "fesm2015/ngx-step.js",
+  "typings": "ngx-step.d.ts",
+  "sideEffects": false
+}
