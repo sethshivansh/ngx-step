@@ -23,7 +23,7 @@ Use of this library is very simple .
 **app.module.ts**
 
 ```ruby
-import {NgxStepModule} from 'ng-step'
+import {NgxStepModule} from 'ngx-step'
 ```
 Then add into imports array of app module file
 
