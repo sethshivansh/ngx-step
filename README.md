@@ -5,6 +5,8 @@ A simple library module to generate the different stages for activity to track m
 
 # Dependent modules
 
+Fontawsome module need to install at project level to support icons used in this library. this library you need to install manually in your application.
+
 ```ruby 
 npm i @fortawesome/fontawesome-free
 ``` 
