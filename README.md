@@ -4,6 +4,7 @@ A simple library module to generate the different stages for activity to track m
 ![image](https://user-images.githubusercontent.com/55994712/215117760-5b4946f9-2c5c-41e5-b081-952daf0b57ac.png)
 
 # Dependent modules
+Fontawsome module need to install at project level to support icons used in this library. this library you need to install manually in your application.
 
 ```ruby 
 npm i @fortawesome/fontawesome-free
@@ -163,7 +164,37 @@ c) COMPLETED : Pass this value to represent that main process is completed and a
 
 d) FAILED: Pass this value to represent that main process is Failed due to any of the reason or any of the state failed.
 
+## Changes Logs
 
+1) <code>v0.0.1</code> -Supports only BASIC type stepper.
+
+2) <code>v1.0.0</code> - Added support for CUSTOM option to customise your stages in more flexible way.
+
+3) <code>v1.1.0</code> - Fixed issue related to CUSTOM stages and added support to allow normal STGAE array data as well.
+
+example: For custom now you can provide the stages  in below formats as well:
+
+```ruby 
+stages=['order_placed' , 'order_shipped', 'out_for_delivery']
+```
+OR
+
+```ruby
+stages = [
+  {
+    "name": "Order Placed",
+    "status": "COMPLETED",
+  },
+  {
+    "name": "Order Shipped",
+    "status": "COMPLETED",
+  },
+  {
+    "name": "Out For Delivery",
+    "status": "IN_PROGRESS",
+  }
+]
+```
 
 ## Reference
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
