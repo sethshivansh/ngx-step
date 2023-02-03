@@ -3,6 +3,16 @@ A simple library module to generate the different stages for activity to track m
 
 ![image](https://user-images.githubusercontent.com/55994712/215117760-5b4946f9-2c5c-41e5-b081-952daf0b57ac.png)
 
+# Dependent modules
+
+```ruby 
+npm i @fortawesome/fontawesome-free
+``` 
+then 
+
+```ruby 
+npm i ngx-step
+``` 
 
 # NgxStep
 
@@ -129,7 +139,7 @@ Object has following keys:
     }
   ```
 
-**5) <code>updateProgressLogs</code>**
+**3) <code>updateProgressLogs</code>**
 
 Its and array of object will be used when user has selected the CUSTOM type stepper  i.e  <code>**options.type = 'CUSTOM'**</code> .
 This option will be usefull when you have some real time stage data updates with some additional information about each stage in addition to name and status. like Message to end user , Detailed Logs information,  Error information etc.
@@ -141,7 +151,7 @@ This option will be usefull when you have some real time stage data updates with
   [{'name':'STEP-1','status':'COMPLETED' , 'message': "We have completed the stage1"},{'name':'STEP-2','status':'IN_PROGRESS' , 'message': "This stage is in progress"}]
 
   ```
-**6) <code>jobOverallStatus</code>**
+**4) <code>jobOverallStatus</code>**
 
 Overall status of Job or Task which will have following values
 
@@ -153,10 +163,41 @@ c) COMPLETED : Pass this value to represent that main process is completed and a
 
 d) FAILED: Pass this value to represent that main process is Failed due to any of the reason or any of the state failed.
 
+## Changes Logs
+
+1) <code>v0.0.1</code> -Supports only BASIC type stepper.
+
+2) <code>v1.0.0</code> - Added support for CUSTOM option to customise your stages in more flexible way.
+
+3) <code>v1.1.0</code> - Fixed issue related to CUSTOM stages and added support to allow normal STGAE array data as well.
+
+example: For custom now you can provide the stages  in below formats as well:
+
+```ruby 
+stages=['order_placed' , 'order_shipped', 'out_for_delivery']
+```
+OR
+
+```ruby
+stages = [
+  {
+    "name": "Order Placed",
+    "status": "COMPLETED",
+  },
+  {
+    "name": "Order Shipped",
+    "status": "COMPLETED",
+  },
+  {
+    "name": "Out For Delivery",
+    "status": "IN_PROGRESS",
+  }
+]
+```
 
 
 ## Reference
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
 ## License
 **MIT**
