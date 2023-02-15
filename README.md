@@ -291,14 +291,14 @@ tableLogs: any = [{
   "time_stamp": "2023-01-03T09:15:19.855000"
 },
 {
-  "error_message": "Coversion of JSON to YAML is Failed",
+  "error_message": "",
   "message": "Order has been shipped. Moved to neareast delivery hub.",
   "stage": "Order Shipped",
   "status": "COMPLETED",
   "time_stamp": "2023-01-03T09:15:32.806000"
 },
 {
-  "error_message": "Secret YAML conversion is completed",
+  "error_message": "",
   "message": "Out For Delivery. Agent will contact you soon.",
   "stage": "Out For Delivery",
   "status": "IN_PROGRESS",
