@@ -3,11 +3,22 @@ A simple library module to generate the different stages for activity to track m
 
 ![image](https://user-images.githubusercontent.com/55994712/215117760-5b4946f9-2c5c-41e5-b081-952daf0b57ac.png)
 
+Detailed Tracking summary support:
+
+<img width="945" alt="tracking_sample" src="https://user-images.githubusercontent.com/55994712/218972871-042b0f49-88f3-4b25-819c-ab3e3cc881a6.PNG">
+
+
 # Dependent modules
-Fontawsome module need to install at project level to support icons used in this library. this library you need to install manually in your application.
+1) Fontawsome module need to install at project level to support icons used in this library. this library you need to install manually in your application.
 
 ```ruby 
 npm i @fortawesome/fontawesome-free
+``` 
+
+2) Moment.js module need to install at project level to support icons used in this library. This library you need to install manually in your application. Library is used for the purpose of datetime data to display in user time zone converted format.
+
+```ruby 
+npm i moment
 ``` 
 then 
 
@@ -90,6 +101,99 @@ export class AppComponent {
 </ngx-step>
 ```
 
+## Advanced usages to show Detailed Summary in tabular format ( Works Only with **CUSTOM** type option )
+
+**component.html** file code
+
+```ruby
+<ngx-step 
+[updateProgressLogs]="progressDataObject" 
+[stages]="stages"
+[jobOverallStatus]="'ACTIVE'"
+[options]="stepperOptions"
+[showLogs]="true"
+[logsTableData]="tableLogs"
+[logTableOptions]="logTableOptions">
+</ngx-step>
+```
+
+**component.ts** code
+```ruby
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'demoapp';
+  stages = [
+    {
+      "name": "Order Placed",
+      "status": "COMPLETED",
+    },
+    {
+      "name": "Order Shipped",
+      "status": "COMPLETED",
+    },
+    {
+      "name": "Out For Delivery",
+      "status": "COMPLETED",
+    }
+  ]
+  stepperOptions : any ={
+    type: 'CUSTOM',
+    finalStageName: 'DELIVERED',
+    isMultiWordStageName: true,
+    textSeparator: '_'
+  };
+  logTableOptions: any = {
+    tableTitle: 'Tracking Information',
+    showTimeDiffColumn: true
+  }
+  tableLogs: any = [
+      {
+      "error_message": "",
+      "message": "Your Order accepted by seller and has been placed.",
+      "stage": "Order Placed",
+      "status": "COMPLETED",
+      "time_stamp": "2023-01-03T09:15:19.855000"
+      },
+      {
+        "error_message": "Coversion of JSON to YAML is Failed",
+        "message": "Order has been shipped. Moved to neareast delivery hub.",
+        "stage": "Order Shipped",
+        "status": "COMPLETED",
+        "time_stamp": "2023-01-03T09:15:32.806000"
+      },
+      {
+        "error_message": "Secret YAML conversion is completed",
+        "message": "Out For Delivery. Agent will contact you soon.",
+        "stage": "Out For Delivery",
+        "status": "IN_PROGRESS",
+        "time_stamp": "2023-01-03T09:15:41.687000"
+      },
+      {
+        "error_message": "Customer Door was Locked!",
+        "message": "We have tried to reach you. Dont worry we have rescheduled your delivery for next working day.",
+        "stage": "Out For Delivery",
+        "status": "IN_PROGRESS",
+        "time_stamp": "2023-01-03T09:15:49.787000"
+      },
+      {
+        "error_message": "Customer not reachable.",
+        "message": "We have tried to reach you. Dont worry we have rescheduled your delivery for next working day.",
+        "stage": "Out For Delivery",
+        "status": "FAILED",
+        "time_stamp": "2023-01-03T09:15:49.787000"
+      }
+  ]
+}
+
+```
+
+
 # Advanced Configuration inputs parameters
 
 **1) <code>stages</code>**
@@ -164,6 +268,71 @@ c) COMPLETED : Pass this value to represent that main process is completed and a
 
 d) FAILED: Pass this value to represent that main process is Failed due to any of the reason or any of the state failed.
 
+## Additional Configuration options for Progress summary Table at the bottom of progress stepper.
+
+**5) <code>showLogs</code>**
+
+A boolean variable use as TRUE when you want to show Detailed summary table information on Tracking details. If value is true then a table will be visible below stage progress.
+
+**6) <code>logsTableData</code>**
+
+An array of objects which hold all of your summary table data and will be visible in UI just below the stepper progress diagram.Each object in this array reperesent one table row of data.
+
+Note- Make sure to use the exactaly same keys of object in <code>logTableData</code> Array.
+ 
+<code> Sample Example: </code>
+
+```ruby
+tableLogs: any = [{
+  "error_message": "",
+  "message": "Your Order accepted by seller and has been placed.",
+  "stage": "Order Placed",
+  "status": "COMPLETED",
+  "time_stamp": "2023-01-03T09:15:19.855000"
+},
+{
+  "error_message": "Coversion of JSON to YAML is Failed",
+  "message": "Order has been shipped. Moved to neareast delivery hub.",
+  "stage": "Order Shipped",
+  "status": "COMPLETED",
+  "time_stamp": "2023-01-03T09:15:32.806000"
+},
+{
+  "error_message": "Secret YAML conversion is completed",
+  "message": "Out For Delivery. Agent will contact you soon.",
+  "stage": "Out For Delivery",
+  "status": "IN_PROGRESS",
+  "time_stamp": "2023-01-03T09:15:41.687000"
+},
+{
+  "error_message": "Customer Door was Locked!",
+  "message": "We have tried to reach you. Dont worry we have rescheduled your delivery for next working day.",
+  "stage": "Out For Delivery",
+  "status": "IN_PROGRESS",
+  "time_stamp": "2023-01-03T09:15:49.787000"
+},
+{
+  "error_message": "Customer not reachable.",
+  "message": "We have tried to reach you. Dont worry we have rescheduled your delivery for next working day.",
+  "stage": "Out For Delivery",
+  "status": "FAILED",
+  "time_stamp": "2023-01-03T09:15:49.787000"
+}
+]
+```
+**7)logTableOptions**
+
+This is again an configuration Object to override the default configuration of summary table
+
+Structure:
+
+```ruby
+ logTableOptions: any = {
+    tableTitle: 'Tracking Information',
+    showTimeDiffColumn: true // use this value as true if you want to show the relative time duration calulation for each stage. ( i.e Time taken by each stage to complete)
+  }
+```
+
 ## Changes Logs
 
 1) <code>v0.0.1</code> -Supports only BASIC type stepper.
@@ -171,6 +340,23 @@ d) FAILED: Pass this value to represent that main process is Failed due to any o
 2) <code>v1.0.0</code> - Added support for CUSTOM option to customise your stages in more flexible way.
 
 3) <code>v1.1.0</code> - Fixed issue related to CUSTOM stages and added support to allow normal STGAE array data as well.
+
+4) <code>v1.2.0</code> - Added support to show the detailed Logs.
+
+Added configuration options: 
+```ruby
+logsTableData: any = [];
+
+showLogs: Boolean = false;
+
+logTableOptions:any = {
+    tableTitle: 'Events & Logs',
+    showTimeDiffColumn: false,
+  };
+```
+Screenshot
+<img width="945" alt="tracking_sample" src="https://user-images.githubusercontent.com/55994712/218972871-042b0f49-88f3-4b25-819c-ab3e3cc881a6.PNG">
+
 
 example: For custom now you can provide the stages  in below formats as well:
 
@@ -195,6 +381,7 @@ stages = [
   }
 ]
 ```
+
 
 ## Reference
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
