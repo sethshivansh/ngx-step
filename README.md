@@ -9,13 +9,13 @@ Detailed Tracking summary support:
 
 
 # Dependent modules
-1) Fontawsome module need to install at project level to support icons used in this library. this library you need to install manually in your application.
+1) **Fontawsome** module need to install at project level to support icons used in this library. this library you need to install manually in your application.
 
 ```ruby 
 npm i @fortawesome/fontawesome-free
 ``` 
 
-2) Moment.js module need to install at project level to support icons used in this library. This library you need to install manually in your application. Library is used for the purpose of datetime data to display in user time zone converted format.
+2) **Moment.js**  This library you need to install manually in your application. Library is used for the purpose of datetime data to display in user time zone converted format.
 
 ```ruby 
 npm i moment
