@@ -341,7 +341,7 @@ Structure:
 
 3) <code>v1.1.0</code> - Fixed issue related to CUSTOM stages and added support to allow normal STGAE array data as well.
 
-4) <code>v1.2.0</code> - Added support to show the detailed Logs.
+4) <code>v1.2.1</code> - Added support to show the detailed Logs.
 
 Added configuration options: 
 ```ruby
@@ -380,6 +380,32 @@ stages = [
     "status": "IN_PROGRESS",
   }
 ]
+```
+5) <code>v1.2.2</code> - Added support for custom color option given to logs & traking information Table to override the stages colors.
+
+## How to override the Color of Status in Events and Logs Table 
+
+Add the below code into your component level CSS file.
+
+```ruby
+:host ::ng-deep .stage_completed {
+  color: rgb(0, 128, 23) !important;
+}
+
+:host ::ng-deep .stage_progress {
+  color: rgb(241, 213, 30) !important;
+}
+:host ::ng-deep .stage_failed {
+  color: rgb(244, 43, 17) !important;
+}
+
+:host ::ng-deep .stage_progress {
+  color: rgb(241, 213, 30) !important;
+}
+
+:host ::ng-deep .stage_not_started {
+  color: rgb(68, 96, 232) !important;
+}
 ```
 
 
